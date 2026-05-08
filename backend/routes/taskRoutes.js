@@ -1,16 +1,10 @@
 const express = require('express');
 
 const router=express.Router();
-const {gettasks}=require('../controllers/taskController'); 
-
-const {createtask}=require('../controllers/taskController');  
-
-const {updatetask}=require('../controllers/taskController');  
-
-const {deletetask}=require('../controllers/taskController');  
+const {gettasks,createtask,updatetask,deletetask}=require('../controllers/taskController'); 
 
 
-
+// console.log(router);
 
 
 
@@ -23,6 +17,6 @@ router.put('/:id',updatetask);
 
 router.delete('/:id',deletetask);
 
-
+// console.log(router);
 
 module.exports=router;

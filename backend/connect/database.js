@@ -1,13 +1,17 @@
 const mongoose=require('mongoose');
-const connectDB=async()=>{
-    try{
+const asyncHandler=require('express-async-handler');
+
+const connectDB=asyncHandler(   async()=>{
+
         const conn=await mongoose.connect(process.env.MONGO_URI);
+    if(conn){
         console.log(`MongoDB Connected: ${conn.connection.host}`);
-    } catch (error) {
-        console.error('Error connecting to MongoDB:', error);
-        process.exit(1);
+    }   
+     else{
+        throw new Error('Failed to connect to MongoDB');
     }
-};
+  
+})
 
 
 module.exports=connectDB;

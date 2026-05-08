@@ -1,13 +1,18 @@
 const express = require('express');
+// console.log(express);
 const { errorHandler } = require('./middleware/errorMiddleware');
-
+// console.log(errorHandler);
 const dotenv =require('dotenv').config();
+// console.log(dotenv);
 const connectDB=require('./connect/database');
-
+// console.log(connectDB);
 const port=process.env.PORT || 5000;
+// console.log(port);
 
+// console.log(process.env);
 connectDB();
 const app=express();
+// console.log(app);
 
   
 
@@ -29,7 +34,7 @@ app.use('/api/tasks',require('./routes/taskRoutes'));
 
 
 
-app.use(errorHandler);
+app.use(errorHandler)
 
 
 
